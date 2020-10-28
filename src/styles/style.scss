@@ -1,0 +1,19 @@
+
+
+.playlists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+.playlist-button {
+  height: 100px;
+  width: 100px;
+  margin: 5px;
+}
+
+.title, .card-header {
+  text-align: center;
+}
+
