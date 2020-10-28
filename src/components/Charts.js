@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Loader from './Loader'
-
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel'
 
 const navigationArray = [
   {
@@ -98,17 +98,29 @@ const Charts = () => {
 
   return <>
 
-    <section className="playlists">
-      {navigationArray.map((playlist, index) => {
-        return <button className="playlist-button" key={index} style={{
-          backgroundImage: `url(${playlist.image})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat'
-        }} onClick={(event) => updateCurrentPlaylist(event.target.innerHTML)}>{playlist.name}</button>
-      })}
-
-    </section>
+    {/* <section className="playlists"> */}
+      <CarouselProvider
+        naturalSlideWidth={0}
+        naturalSlideHeight={0}
+        totalSlides={navigationArray.length}
+        visibleSlides={7}
+        infinite={true}>
+        <Slider>
+          {navigationArray.map((playlist, index) => {
+            return <Slide index={index} key={index}><button className="playlist-button" style={{
+              backgroundImage: `url(${playlist.image})`,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat'
+            }} onClick={(event) => updateCurrentPlaylist(event.target.innerHTML)}>{playlist.name}</button></Slide>
+          })}
+        </Slider>
+        <div className="slide-buttons">
+          <ButtonBack className="slide-button">Back</ButtonBack>
+          <ButtonNext className="slide-button">Next</ButtonNext>
+        </div>
+      </CarouselProvider>
+    {/* </section> */}
 
 
     <div className='container t-4'>
