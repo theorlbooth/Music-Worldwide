@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import Loader from './Loader'
 
 
 const navigationArray = [
@@ -71,7 +72,6 @@ const Charts = () => {
   const currentPlaylistID = navigationArray[currentNamePlaylist.indexOf(currentPlaylist)].id
 
 
-
   useEffect(() => {
     async function fetchData() {
 
@@ -81,18 +81,20 @@ const Charts = () => {
     fetchData()
   }, [currentPlaylist])
 
-  
+
 
   if (playlistData.tracks === undefined) {
     return <>
-      <h1>Loading...</h1>
+      <div className="loading-box">
+        <Loader />
+      </div>
     </>
   }
 
   const top10Array = playlistData.tracks.data.slice(0, 10)
-  
 
-  
+
+
 
   return <>
 
@@ -119,7 +121,7 @@ const Charts = () => {
           <div>
             {top10Array.map((track, index) => {
               return <div className="content" key={index}>
-                {index + 1}. <img src={track.album.cover} /> {track.title} - 
+                {index + 1}. <img src={track.album.cover} /> {track.title} -
                 <Link to={`project-2/artist/${track.artist.name}`}>
                   {track.artist.name}
                 </Link>
