@@ -1,8 +1,15 @@
+
+#root {
+  background-color: #3c4d93;
+  min-height: 1300px;
+}
+
 .playlists {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 30px auto;
+  margin-top: 0px;
   width: 100%;
 }
 
@@ -44,12 +51,14 @@
 .chart-container {
   // border: solid 1px black;
   margin: 10px;
+  margin-bottom: 30px;
   padding: 20px 10px;
   box-shadow: 0 0 10px #888888;
   min-width: 500px;
   max-width: 700px;
   border-radius: 5px;
   font-size: 20px;
+  background-color: white;
   h1 {
     font-size: 30px;
     font-weight: bold;
@@ -109,6 +118,7 @@
 .artist-page {
   width: 800px;
   margin: auto;
+  color: white;
 }
 
 .heading-1 {
@@ -135,9 +145,8 @@
 }
 
 .news-container {
-  margin: 10px;
+  margin: 10px 10px 0px 10px;
 }
-
 
 .news-item {
   display: flex;
@@ -145,6 +154,7 @@
   padding: 20px 0px;
   position: relative;
 }
+
 .text {
   margin-right: 10px;
   width: 650px;
@@ -163,4 +173,13 @@
 
 .article-image img{
   object-fit: contain;
+}
+
+.artist-page a {
+  color: white;
+  text-decoration: underline;
+}
+
+.artist-page a:hover {
+  color: white;
 }
