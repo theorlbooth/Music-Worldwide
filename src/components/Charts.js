@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Loader from './Loader'
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
+
+
+
 
 const navigationArray = [
   {
@@ -93,34 +97,36 @@ const Charts = () => {
 
   const top10Array = playlistData.tracks.data.slice(0, 10)
 
-
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 6,
+      slidesToSlide: 3 
+    }
+  }
 
 
   return <>
 
-    {/* <section className="playlists"> */}
-      <CarouselProvider
-        naturalSlideWidth={0}
-        naturalSlideHeight={0}
-        totalSlides={navigationArray.length}
-        visibleSlides={7}
-        infinite={true}>
-        <Slider>
-          {navigationArray.map((playlist, index) => {
-            return <Slide index={index} key={index}><button className="playlist-button" style={{
-              backgroundImage: `url(${playlist.image})`,
-              backgroundPosition: 'center',
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat'
-            }} onClick={(event) => updateCurrentPlaylist(event.target.innerHTML)}>{playlist.name}</button></Slide>
-          })}
-        </Slider>
-        <div className="slide-buttons">
-          <ButtonBack className="slide-button">Back</ButtonBack>
-          <ButtonNext className="slide-button">Next</ButtonNext>
-        </div>
-      </CarouselProvider>
-    {/* </section> */}
+    <section className="playlists">
+      <Carousel
+        infinite={true}
+        responsive={responsive}
+        containerClass="carousel-container"
+        itemClass="carousel-item-padding-40-px"
+        centerMode={true}
+      >
+        {navigationArray.map((playlist, index) => {
+          return <div key={index}><button className="playlist-button" style={{
+            backgroundImage: `url(${playlist.image})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
+          }} onClick={(event) => updateCurrentPlaylist(event.target.innerHTML)}>{playlist.name}</button></div>
+        })}
+      </Carousel>
+
+    </section>
 
 
     <div className='container t-4'>

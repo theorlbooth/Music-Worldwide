@@ -2,8 +2,8 @@
 
 .playlists {
   display: flex;
-  // flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   margin: 30px auto;
   width: 100%;
 }
@@ -14,41 +14,19 @@
   margin: 5px;
 }
 
-
-.carousel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.sliderTray___-vHFQ {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-}
-
-
-.slide-button {
-  width: 100px;
-  margin: 0px 5px;
-}
-
-.slide-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 200px;
-}
-
-
-
 .title, .card-header {
   text-align: center;
 }
 
 .sweet-loading {
   margin-top: 400px;
+}
+
+
+.react-multi-carousel-track {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 800px;
 }

@@ -252,7 +252,6 @@ const navigationArray = [
     id: 1313615765,
     image: 'https://e-cdns-images.dzcdn.net/images/playlist/ff37dde9536a4485314bbf277096b072/264x264-000000-80-0-0.jpg'
   },
-
   {
     name: 'Top Argentina',
     id: 1279119721,
