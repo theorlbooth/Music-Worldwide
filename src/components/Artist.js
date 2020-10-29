@@ -17,16 +17,16 @@ const Artist = (props) => {
 
   useEffect(() => {
     async function fetchNews() {
-      const { data: dataInfo } = await axios.get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=eb5fccc68a5fd50a780b1973c7310ad3&format=json`)
+      const { data: dataInfo } = await axios.get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=${process.env.Last_API_Key}&format=json`)
       setArtistInfo(dataInfo.artist)
       const { data: artistImage } = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${artistID}`)
       setDeezerInfo(artistImage)
       const { data: dataNews } = await axios.get(
         `https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=${artistName}&count=10&offset=0&mkt=en-us&safeSearch=Moderate`, {
-        headers: {
-          'Ocp-Apim-Subscription-Key': '6ccba96991d845f3b79d4754d8ca5870'
-        }
-      })
+          headers: {
+            'Ocp-Apim-Subscription-Key': (process.env.Ocp_Apim_Subscription_Key)
+          }
+        })
       setArtistNews(dataNews.value)
 
     }

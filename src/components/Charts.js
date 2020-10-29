@@ -46,7 +46,6 @@ const Charts = () => {
 
   return <>
 
-
     <section className="playlists">
       <CarouselComp currentPlaylist={currentPlaylist} updateCurrentPlaylist={updateCurrentPlaylist} updateFilteredPlaylists={updateFilteredPlaylists} filteredPlaylists={filteredPlaylists}/>
 

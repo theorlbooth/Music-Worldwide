@@ -1,7 +1,10 @@
 
 #root {
-  background-color: #3c4d93;
+  background-image: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v485-nunoon-44-musicnotesbackgroundicon_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=7e39a07f98c86616aa5a250695240e41');
   min-height: 1300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .playlists {
@@ -191,9 +194,19 @@
 
 .artist-page a {
   color: white;
-  text-decoration: underline;
 }
 
 .artist-page a:hover {
   color: white;
+  font-weight: bold;
+  text-decoration: underline;
 }
+
+.hero-body {
+  background-image: url('https://i.pinimg.com/originals/0b/a8/df/0ba8dfceaa16c47b713cbed42c1e6b34.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 1300px;
+}
+
