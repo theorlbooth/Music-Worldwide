@@ -12,6 +12,7 @@ const Charts = () => {
 
   const [playlistData, updatePlaylistData] = useState({})
   const [currentPlaylist, updateCurrentPlaylist] = useState('Top Worldwide')
+  const [filteredPlaylists, updateFilteredPlaylists] = useState('')
 
 
   const currentNamePlaylist = navigationArray.map(name => {
@@ -50,7 +51,17 @@ const Charts = () => {
     }
   }
 
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+  function filterPlaylists() {
+    const filtPlaylists = navigationArray.filter(playlist => {
+      const name = playlist.name.toLowerCase()
+      const filterText = filteredPlaylists.toLowerCase()
+      return name.includes(filterText)
+    })
+    return filtPlaylists
+  }
 
   return <>
 
@@ -62,7 +73,7 @@ const Charts = () => {
         itemClass="carousel-item-padding-40-px"
         centerMode={true}
       >
-        {navigationArray.map((playlist, index) => {
+        {filterPlaylists().map((playlist, index) => {
           return <div key={index}><button className="playlist-button" style={{
             backgroundImage: `url(${playlist.image})`,
             backgroundPosition: 'center',
@@ -71,6 +82,8 @@ const Charts = () => {
           }} onClick={(event) => updateCurrentPlaylist(event.target.innerHTML)}>{playlist.name}</button></div>
         })}
       </Carousel>
+
+      <input className="input" placeholder="Search..." onChange={(event) => updateFilteredPlaylists(event.target.value)} value={filteredPlaylists} />
 
     </section>
 
@@ -93,11 +106,13 @@ const Charts = () => {
                   </Link>
                 </div>
               </div>
-              <img src='/images/play.png' alt="play button" className="play-button"  id={`play${index}`} onClick={() => {
+              <img src='/images/play.png' alt="play button" className="play-button" id={`play${index}`} onClick={() => {
                 playState = !playState
 
-                { playState ? 
-                  document.querySelector(`#play${index}`).src = '/images/pause.png' : document.querySelector(`#play${index}`).src = '/images/play.png' }
+                {
+                  playState ?
+                    document.querySelector(`#play${index}`).src = '/images/pause.png' : document.querySelector(`#play${index}`).src = '/images/play.png'
+                }
 
                 document.querySelector('.player').src = `${track.preview}`
                 { playState ? document.querySelector('.player').play() : document.querySelector('.player').pause() }
