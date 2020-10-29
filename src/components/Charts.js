@@ -51,8 +51,6 @@ const Charts = () => {
     }
   }
 
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   function filterPlaylists() {
     const filtPlaylists = navigationArray.filter(playlist => {
@@ -63,7 +61,76 @@ const Charts = () => {
     return filtPlaylists
   }
 
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  if (filterPlaylists().length < 8) {
+    return <>
+
+      <section className="playlists">
+        <div className="small-playlists">
+          {filterPlaylists().map((playlist, index) => {
+            return <div key={index}><button className="playlist-button" style={{
+              backgroundImage: `url(${playlist.image})`,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat'
+            }} onClick={(event) => updateCurrentPlaylist(event.target.innerHTML)}>{playlist.name}</button></div>
+          })}
+        </div>
+
+        <input className="input" placeholder="Search..." onChange={(event) => updateFilteredPlaylists(event.target.value)} value={filteredPlaylists} />
+
+      </section>
+
+      <div className="flexcontainer">
+        <div className="chart-container">
+          <h1>{currentPlaylist}</h1>
+          <hr></hr>
+          <div>
+            {top10Array.map((track, index) => {
+              let playState = false
+              let idPlaying = ''
+              return <div className="track-info" key={index}>
+                <div className="track-position">{index + 1}.</div>
+                <img src={track.album.cover} />
+                <div className="track-text">
+                  <div className="track-name">{track.title}</div>
+                  <div className="track-artist">
+                    <Link to={`charts/${track.artist.name}/${track.artist.id}`}>
+                      {` ${track.artist.name}`}
+                    </Link>
+                  </div>
+                </div>
+                <img src='/images/play.png' alt="play button" className="play-button" id={`play${index}`} onClick={() => {
+                  playState = !playState
+
+                  {
+                    playState ?
+                      document.querySelector(`#play${index}`).src = '/images/pause.png' : document.querySelector(`#play${index}`).src = '/images/play.png'
+                  }
+
+                  document.querySelector('.player').src = `${track.preview}`
+                  { playState ? document.querySelector('.player').play() : document.querySelector('.player').pause() }
+
+                  // setPlayState(!playState)
+                  // document.querySelectorAll('audio').pause()
+
+                }} />
+              </div>
+            })}
+          </div>
+        </div>
+      </div>
+      <audio src='' className='player'></audio>
+
+    </>
+
+
+  }
+
   return <>
+
 
     <section className="playlists">
       <Carousel
