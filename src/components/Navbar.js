@@ -9,6 +9,7 @@ const Navbar = () => {
           <div className="buttons">
             <Link className="button is-light" to="/project-2">Home</Link>
             <Link className="button is-info" to="/project-2/charts">Charts</Link>
+            {/* <Link className="button is-info" to="/project-2/charts/artists">Artists</Link> */}
           </div>
         </div>
       </div>

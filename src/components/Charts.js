@@ -100,10 +100,11 @@ const Charts = () => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 6,
-      slidesToSlide: 3 
+      items: 5,
+      slidesToSlide: 3
     }
   }
+
 
 
   return <>
@@ -128,28 +129,44 @@ const Charts = () => {
 
     </section>
 
-
-    <div className='container t-4'>
-      <div className="card ml-6">
-        <div className="card-header">
-          <div className="title chart-title">{currentPlaylist}</div>
-        </div>
-        <div className="card-content">
-          <hr></hr>
-          <div>
-            {top10Array.map((track, index) => {
-              return <div className="content" key={index}>
-                {index + 1}. <img src={track.album.cover} /> {track.title} -
-                <Link to={`project-2/artist/${track.artist.name}`}>
-                  {track.artist.name}
-                </Link>
-                <hr></hr>
+    <div className="flexcontainer">
+      <div className="chart-container">
+        <h1>{currentPlaylist}</h1>
+        <hr></hr>
+        <div>
+          {top10Array.map((track, index) => {
+            let playState = false
+            let idPlaying = ''
+            return <div className="track-info" key={index}>
+              <div className="track-position">{index + 1}.</div>
+              <img src={track.album.cover} />
+              <div className="track-text">
+                <div className="track-name">{track.title}</div>
+                <div className="track-artist">
+                  <Link to={`charts/${track.artist.name}/${track.artist.id}`}>
+                    {` ${track.artist.name}`}
+                  </Link>
+                </div>
               </div>
-            })}
-          </div>
+              <img src='/images/play.png' alt="play button" className="play-button"  id={`play${index}`} onClick={() => {
+                playState = !playState
+
+                { playState ? 
+                  document.querySelector(`#play${index}`).src = '/images/pause.png' : document.querySelector(`#play${index}`).src = '/images/play.png' }
+
+                document.querySelector('.player').src = `${track.preview}`
+                { playState ? document.querySelector('.player').play() : document.querySelector('.player').pause() }
+
+                // setPlayState(!playState)
+                // document.querySelectorAll('audio').pause()
+
+              }} />
+            </div>
+          })}
         </div>
       </div>
     </div>
+    <audio src='' className='player'></audio>
   </>
 
 

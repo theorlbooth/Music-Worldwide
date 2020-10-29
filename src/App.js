@@ -17,9 +17,9 @@ const App = () => {
   return <BrowserRouter>
     <Navbar />
     <Switch>
-      <Route exact path="/project-2/" component={Home} />
+      <Route exact path="/project-2" component={Home} />
       <Route exact path="/project-2/charts" component={Charts} />
-      {/* <Route exact path="/project-2/artist/:artistName" component={Artist} /> */}
+      <Route exact path="/project-2/charts/:artistName/:artistID" component={Artist} />
     </Switch>
   </BrowserRouter>
 }
