@@ -71,7 +71,7 @@ const Charts = () => {
                   </Link>
                 </div>
               </div>
-              <img src='/images/play.png' alt="play button" className="play-button" id={`play${index}`} onClick={() => {
+              <img src= { playButton } alt="play button" className="play-button" id={`play${index}`} onClick={() => {
                 playState = !playState
 
                 { playState ?
