@@ -17,7 +17,7 @@ const Artist = (props) => {
 
   useEffect(() => {
     async function fetchNews() {
-      const { data: dataInfo } = await axios.get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=${process.env.Last_API_Key}&format=json`)
+      const { data: dataInfo } = await axios.get(`https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=${process.env.Last_API_Key}&format=json`)
       setArtistInfo(dataInfo.artist)
       const { data: artistImage } = await axios.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${artistID}`)
       setDeezerInfo(artistImage)

@@ -5,7 +5,8 @@ import Loader from './Loader'
 import 'react-multi-carousel/lib/styles.css'
 import navigationArray from './Playlists'
 import CarouselComp from './Carousel'
-
+import pauseButton from '../images/pause.png'
+import playButton from '../images/play.png'
 
 
 const Charts = () => {
@@ -74,7 +75,7 @@ const Charts = () => {
                 playState = !playState
 
                 { playState ?
-                  document.querySelector(`#play${index}`).src = '/images/pause.png' : document.querySelector(`#play${index}`).src = '/images/play.png'}
+                  document.querySelector(`#play${index}`).src = pauseButton : document.querySelector(`#play${index}`).src = playButton}
 
                 document.querySelector('.player').src = `${track.preview}`
                 { playState ? document.querySelector('.player').play() : document.querySelector('.player').pause() }
