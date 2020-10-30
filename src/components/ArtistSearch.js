@@ -22,32 +22,34 @@ const ArtistSearch = () => {
   if (info === undefined) {
 
     return <>
-      <div className="searchflex">
-        <input className="search-input" placeholder="Search artist or band name..." onChange={(event) => updateInput(event.target.value)}/>
-        <button className="search-button" onClick={() => updateSearch(input)}>Search</button>
+      <div className="search-page">
+        <div className="searchflex">
+          <input className="search-input" placeholder="Search artist or band name..." onChange={(event) => updateInput(event.target.value)} />
+          <button className="search-button" onClick={() => updateSearch(input)}>Search</button>
+        </div>
       </div>
     </>
   }
 
   return <>
-    <div className="searchflex">
-      <input className="search-input" placeholder="Search artist or band name..." onChange={(event) => updateInput(event.target.value)}/>
-      <button className="search-button" onClick={() => updateSearch(input)}>Search</button>
+    <div className="search-page">
+      <div className="searchflex">
+        <input className="search-input" placeholder="Search artist or band name..." onChange={(event) => updateInput(event.target.value)} />
+        <button className="search-button" onClick={() => updateSearch(input)}>Search</button>
+      </div>
+      <div className="search-results">
+        {info.slice(0, 5).map((result, i) => {
+          return <div key={i} className="search-result">
+            <img className='search-pics' src={result.picture} />
+            <h1 className="search-header">
+              <Link to={`charts/${result.name}/${result.id}`}>
+                {result.name}
+              </Link>
+            </h1>
+          </div>
+        })}
+      </div>
     </div>
-    <div className="search-results">
-      {info.slice(0, 5).map((result, i) => {
-        return <div key={i} className="search-result">
-          <img className='search-pics' src={result.picture} />
-          <h1 className="search-header">
-            <Link to={`charts/${result.name}/${result.id}`}>
-              {result.name}
-            </Link>
-          </h1>
-        </div>
-      })}
-    </div>
-
-
   </>
 }
 

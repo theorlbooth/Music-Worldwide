@@ -216,6 +216,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  justify-content: center;
 }
 
 .home-container {
@@ -230,38 +232,40 @@
 
 .navbar {
   background-color: black;
-  .is-light {
-    background-color: black;
+  .is-black {
     border: white solid 1px;
-    color: white;
-  }
-  .is-info {
-    background-color: white;
-    color: black;
   }
 }
-
-
 
 .search-input {
   height: 50px;
   width: 800px;
-  margin: -400px 0 0 0;
+  // margin: -400px 0 0 0;
 }
 
 .search-button {
   height: 50px;
   width: 150px;
   margin-left: 10px;
-  margin: -400px 0px 0px 0px;
+  // margin: -400px 0px 0px 0px;
+}
+
+.search-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100vh;
 }
 
 .searchflex {
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
+  // padding-top: 300px;
   margin: auto;
-  height: 100vh;
+  // height: 100vh;
 }
 
 .search-results {
