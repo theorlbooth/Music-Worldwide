@@ -23,7 +23,7 @@ const ArtistSearch = () => {
 
     return <>
       <div className="search-page">
-        <div className="searchflex">
+        <div className="search-flex">
           <input className="search-input" placeholder="Search artist or band name..." onChange={(event) => updateInput(event.target.value)} />
           <button className="search-button" onClick={() => updateSearch(input)}>Search</button>
         </div>
@@ -33,7 +33,7 @@ const ArtistSearch = () => {
 
   return <>
     <div className="search-page">
-      <div className="searchflex">
+      <div className="search-flex">
         <input className="search-input" placeholder="Search artist or band name..." onChange={(event) => updateInput(event.target.value)} />
         <button className="search-button" onClick={() => updateSearch(input)}>Search</button>
       </div>
