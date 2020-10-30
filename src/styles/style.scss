@@ -1,7 +1,5 @@
-
 #root {
-  background-image: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v485-nunoon-44-musicnotesbackgroundicon_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=7e39a07f98c86616aa5a250695240e41');
-  min-height: 1300px;
+  background-image: url('https://images.unsplash.com/photo-1476136236990-838240be4859?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -36,6 +34,8 @@
   margin: 5px;
   border: none;
   border-radius: 5px;
+  color: white;
+  font-weight: bold;
 }
 
 .title, .card-header {
@@ -44,6 +44,7 @@
 
 .sweet-loading {
   margin-top: 400px;
+  height: 100vh;
 }
 
 .carousel-container {
@@ -53,20 +54,28 @@
 
 .react-multi-carousel-track {
   display: flex;
-  // justify-content: center;
   align-items: center;
   height: 200px;
   width: 800px;
+}
+
+@media only screen and (max-width: 464px) {
+  .carousel-container {
+  width: 100px;
+  }
+  .react-multi-carousel-track {
+    width: 100px;
+  }
 }
 
 .flexcontainer {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+
 }
 
 .chart-container {
-  // border: solid 1px black;
   margin: 10px;
   margin-bottom: 30px;
   padding: 20px 10px;
@@ -111,7 +120,7 @@
 .artist-name {
   font-size: 30px;
   font-weight: bold;
-  margin: 10px;
+  margin: 20px 10px 0px 10px;
 }
 
 .info-container {
@@ -203,10 +212,87 @@
 }
 
 .hero-body {
-  background-image: url('https://i.pinimg.com/originals/0b/a8/df/0ba8dfceaa16c47b713cbed42c1e6b34.jpg');
+  background-image: url('https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 1300px;
 }
 
+.home-container {
+  margin: -300px 0 0 0;
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+}
+
+.navbar {
+  background-color: black;
+  .is-light {
+    background-color: black;
+    border: white solid 1px;
+    color: white;
+  }
+  .is-info {
+    background-color: white;
+    color: black;
+  }
+}
+
+
+
+.search-input {
+  height: 50px;
+  width: 800px;
+  margin: -400px 0 0 0;
+}
+
+.search-button {
+  height: 50px;
+  width: 150px;
+  margin-left: 10px;
+  margin: -400px 0px 0px 0px;
+}
+
+.searchflex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100vh;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 600px;
+  margin: 20px auto;
+  
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.search-header a {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.search-header:hover {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.search-pics {
+ height: 65px;
+ margin: 0 20px;
+}

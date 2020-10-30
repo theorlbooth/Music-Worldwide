@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Charts from './components/Charts'
 import Artist from './components/Artist'
+import ArtistSearch from './components/ArtistSearch'
 
 import 'bulma'
 import './styles/style.scss'
@@ -19,6 +20,7 @@ const App = () => {
     <Switch>
       <Route exact path="/project-2" component={Home} />
       <Route exact path="/project-2/charts" component={Charts} />
+      <Route exact path="/project-2/search" component={ArtistSearch} />
       <Route exact path="/project-2/charts/:artistName/:artistID" component={Artist} />
     </Switch>
   </BrowserRouter>

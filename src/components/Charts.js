@@ -73,10 +73,8 @@ const Charts = () => {
               <img src='/images/play.png' alt="play button" className="play-button" id={`play${index}`} onClick={() => {
                 playState = !playState
 
-                {
-                  playState ?
-                    document.querySelector(`#play${index}`).src = '/images/pause.png' : document.querySelector(`#play${index}`).src = '/images/play.png'
-                }
+                { playState ?
+                  document.querySelector(`#play${index}`).src = '/images/pause.png' : document.querySelector(`#play${index}`).src = '/images/play.png'}
 
                 document.querySelector('.player').src = `${track.preview}`
                 { playState ? document.querySelector('.player').play() : document.querySelector('.player').pause() }

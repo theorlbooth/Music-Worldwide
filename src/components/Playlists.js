@@ -8,6 +8,11 @@ const navigationArray = [
     image: 'https://e-cdns-images.dzcdn.net/images/playlist/f1ac18441ab1dabc94282e4d1d5f4955/264x264-000000-80-0-0.jpg'
   },
   {
+    name: 'Top UK',
+    id: 1111142221,
+    image: 'https://e-cdns-images.dzcdn.net/images/playlist/85bd6585976b8e21e0deee810ff24518/264x264-000000-80-0-0.jpg'
+  },
+  {
     name: 'Top USA',
     id: 1313621735,
     image: 'https://e-cdns-images.dzcdn.net/images/playlist/5db67fb2a5d10d69fe4780dc11b2b174/264x264-000000-80-0-0.jpg'
@@ -18,11 +23,6 @@ const navigationArray = [
     image: 'https://e-cdns-images.dzcdn.net/images/playlist/6d2f56f6ab811a819527076b76f93d71/264x264-000000-80-0-0.jpg'
   },
   {
-    name: 'Top Brazil',
-    id: 1111141961,
-    image: 'https://e-cdns-images.dzcdn.net/images/playlist/135c4adb3d5115d128c0635adc4ebae5/264x264-000000-80-0-0.jpg'
-  },
-  {
     name: 'Top Germany',
     id: 1111143121,
     image: 'https://e-cdns-images.dzcdn.net/images/playlist/fbd9767ddb69cf4c43889f8e141f19b2/264x264-000000-80-0-0.jpg'
@@ -31,6 +31,16 @@ const navigationArray = [
     name: 'Top France',
     id: 1109890291,
     image: 'https://e-cdns-images.dzcdn.net/images/playlist/b40301f3a462bcad6cc2e75937be05be/264x264-000000-80-0-0.jpg'
+  },
+  {
+    name: 'Top Japan',
+    id: 1362508955,
+    image: 'https://e-cdns-images.dzcdn.net/images/playlist/94a7054454c769075dfd685fc669c846/264x264-000000-80-0-0.jpg'
+  },
+  {
+    name: 'Top Brazil',
+    id: 1111141961,
+    image: 'https://e-cdns-images.dzcdn.net/images/playlist/135c4adb3d5115d128c0635adc4ebae5/264x264-000000-80-0-0.jpg'
   },
   {
     name: 'Top Colombia',
@@ -141,11 +151,6 @@ const navigationArray = [
     name: 'Top South Korea',
     id: 1362510315,
     image: 'https://e-cdns-images.dzcdn.net/images/playlist/5afa4d5a4240484b0a806648907c4810/264x264-000000-80-0-0.jpg'
-  },
-  {
-    name: 'Top Japan',
-    id: 1362508955,
-    image: 'https://e-cdns-images.dzcdn.net/images/playlist/94a7054454c769075dfd685fc669c846/264x264-000000-80-0-0.jpg'
   },
   {
     name: 'Top Jordan',
@@ -331,11 +336,6 @@ const navigationArray = [
     name: 'Top Honduras',
     id: 1116190301,
     image: 'https://e-cdns-images.dzcdn.net/images/playlist/d80ef8e6d6339a508e919837b7015f19/264x264-000000-80-0-0.jpg'
-  },
-  {
-    name: 'UK',
-    id: 1111142221,
-    image: 'https://e-cdns-images.dzcdn.net/images/playlist/85bd6585976b8e21e0deee810ff24518/264x264-000000-80-0-0.jpg'
   }
 ]
 
