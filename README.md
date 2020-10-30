@@ -29,14 +29,14 @@ x Images & audio
 
 ## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) General Assembly, Software Engineering Immersive
 
-#Project #2: Reacathon
+# Project #2: Reacathon
 
 
-##Overview
+## Overview
 In teams of two we were asked to build a **React application** that consumes a **public API**.
 We decided to build a music site where you could **discover top tracks and music news from around the world**.
 
-###Technical Requirements
+## Technical Requirements
 
 * **Consume a public API**.
 * **Have several components** - At least one classical and one functional.
@@ -45,7 +45,7 @@ We decided to build a music site where you could **discover top tracks and music
 * Have **semantically clean HTML**.
 * **Be deployed online** and accessible to the public.
 
-##Technologies
+## Technologies
 
 * HTML
 * CSS / SCSS
@@ -60,12 +60,12 @@ We decided to build a music site where you could **discover top tracks and music
 	* [Bing News](https://azure.microsoft.com/en-us/services/cognitive-services/bing-news-search-api/)
 	* [Last.fm](https://www.last.fm/api)
 
-##Approach
+## Approach
 
-###Wireframes
+### Wireframes
 ![wireframe](./images/screenshots/project-2-wireframe.png)
 
-###APIs 
+### APIs 
 
 We started with a plan to use two APIs: one to get the charts from around the world (Deezer) and one to get news on specific artists or bands (Bing News). As we were planing the app out added a third API to pull in artist/band biographies (Last.fm).
 
@@ -101,9 +101,56 @@ const { data: dataInfo } = await axios.get(
 )
 ```
 
+### Libraries
+  
+* [React-multi-carousel](https://www.npmjs.com/package/react-multi-carousel)
+	
+After battling with 'Pure-react-carousel' we decided to use the 'React-multi-carousel'. This required a lot more setup, and what seemed like endless StackOverflow rabbit holes trying to find the correct webpack.config.js module rules to set. However after we had managed to get it on the page it was much more responsive and easier to handle...albeit with more parameters.
 
-##Challenges / Victories
-###Play buttons [Challenge]
+
+```
+<Carousel
+        infinite={true}
+        responsive={responsive}
+        containerClass="carousel-container"
+        itemClass="carousel-item-padding-40-px"
+        centerMode={true}
+      >
+        {filterPlaylists().map((playlist, index) => {
+          return <div key={index}><button className="playlist-button" style={{
+            backgroundImage: `url(${playlist.image})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
+          }} onClick={(event) => props.updateCurrentPlaylist(event.target.innerHTML)}>{playlist.name}</button></div>
+        })}
+      </Carousel>
+```
+
+![carousel](./images/screenshots/project-2-carousel.png)
+
+* [React-spinners](https://github.com/davidhu2000/react-spinners)
+(RingLoader)
+  
+This was very straighforward - good documentation and easy to implement.
+
+  
+```
+const Loader = () => {
+  return <div className="sweet-loading">
+    <RingLoader
+      css={`display: block;
+    margin: auto;
+    border-color: red;`}
+      size={150}
+      color={'#FF0000'}
+      loading={true}
+    />
+  </div>
+```
+
+## Challenges / Victories
+### Play buttons [Challenge]
 On the Charts page the play/pause buttons gave us more trouble than we expected; for ex. all changing from play to pause when one was clicked, not stopping to play once one had been clicked, or needing various clicks to start or to stop.
  
 We still have a know bug remaining with these buttons (see "Known bugs" section), but we resolved most of our issues by using a local vairable and some JS DOM techniques.
@@ -134,11 +181,64 @@ We felt very satisfied that we managed to pull the Artist Search page together i
 [...]
 
 
-##Known bugs
-###Play buttons
+### Carousel
+One of the biggest challenges for us was to get the carousel to work in an infinite loop without skipping from end to beggining. There seemed to be an issue with the number of slides shown vs the number of slides skipped onclick - this was finally resolved with a lot of trial and error of different aspects of the documentation. Unfortunately at the expense of the mobile responsiveness for the time being.
+Due to the fact taht we were filtering an array from an input and then mapping it into the carousel, another issue we faced was the output if there were fewer items to show than the number of slides set to be shown for the carousel. We got around this with an if statement returning the slides as individual items.
+
+
+```
+if (filterPlaylists().length < 8) {
+    return <>
+
+      <section className="playlists">
+        <div className="small-playlists">
+          {filterPlaylists().map((playlist, index) => {
+            return <div key={index}><button className="playlist-button" style={{
+              backgroundImage: `url(${playlist.image})`,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat'
+            }} onClick={(event) => props.updateCurrentPlaylist(event.target.innerHTML)}>{playlist.name}</button></div>
+          })}
+        </div>
+        <input className="input" placeholder="Search..." onChange={(event) => props.updateFilteredPlaylists(event.target.value)} value={props.filteredPlaylists} />
+      </section>
+    </>
+``` 
+
+![filter](./images/screenshots/project-2-filter.png)
+
+
+## Known bugs
+### Play buttons
 * When a play button is clicked, music is playing. When another play button is then clicked, the music switches but the first button image stays on the pause image rather than switching back.
 
-##Images
+### CORS Error
+* Towards the final hours of our project we had real issues with the following error. However these were sporadic, unpredicatable and unexplainable as they were often solved with a hard refresh.
+
+    "No 'Access-Control-Allow-Origin' header is present on the requested resource."
+
+## Future Features
+
+### Mobile responsiveness 
+
+* We started out with this in mind and slowly drifted away from it having to hard code fixes for issues.  The time constraint played the biggest part in this, so it shouldnt be too hard to implement.
+
+
+### Artist section 
+
+* The APIs were were using were packed with information and it would have been nice to include more of this on the page.  Similar artists would have been the starting point. 
+
+
+### Back button
+
+* Currently when on the artist page there is no way of going back to the playlist that was previously selected, the Charts page reloads from default. 
+
+### Map
+
+* We had a romantic idea of having a responsive map instead of a carousel on the 'Charts' page - where one could chose the playlist by clicking on a country. Number of countries in the world vs number of playlists available aside, there were many reasons we didn't get round to this. But it would be nice to implement at some point in the future.
+
+## Images
 * Homepage background image by [Vishnu R Nair on Unsplash](https://unsplash.com/@vishnurnair)
 * Background image for other pages by [Claus Grünstäudl on Unsplash](https://unsplash.com/@w18)
 * Play/Pause buttons from [noun project](https://thenounproject.com/)
