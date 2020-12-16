@@ -63,7 +63,7 @@ We decided to build a music site where you could **discover top tracks and music
 ## Approach
 
 ### Wireframes
-![wireframe](./images/screenshots/project-2-wireframe.png)
+![wireframe](src/images/screenshots/project-2-wireframe.png)
 
 ### APIs 
 
@@ -101,6 +101,17 @@ const { data: dataInfo } = await axios.get(
 )
 ```
 
+### Linking / Dynamic Page Creation
+
+Having decided to use several APIs to get the information we wanted we also had to pass several pieces of information between pages. We decided to pass both the Artist name and the Artist ID through the url from the Charts page to the Artist page to avoid having to re-run one of the APIs.
+
+```
+<Route exact path="/project-2/charts/:artistName/:artistID" component={Artist} />
+```
+
+This however didn't solve the entire problem.  We decided to add a search for Artist/Band in the later stages of the project and had to call the API in order to get the ID from the search input.  It did allow us however to re-run the API on that page alone and pass the name and id back through to the page we had already constructed to show the artist information, therefore creating 2 paths to the same endpoint.
+
+
 ### Libraries
   
 * [React-multi-carousel](https://www.npmjs.com/package/react-multi-carousel)
@@ -127,7 +138,7 @@ After battling with 'Pure-react-carousel' we decided to use the 'React-multi-car
       </Carousel>
 ```
 
-![carousel](./images/screenshots/project-2-carousel.png)
+![carousel](src/images/screenshots/project-2-carousel.png)
 
 * [React-spinners](https://github.com/davidhu2000/react-spinners)
 (RingLoader)
@@ -148,6 +159,9 @@ const Loader = () => {
     />
   </div>
 ```
+
+![spinner](src/images/screenshots/project-2-spinner.png)
+
 
 ## Challenges / Victories
 ### Play buttons [Challenge]
@@ -206,7 +220,7 @@ if (filterPlaylists().length < 8) {
     </>
 ``` 
 
-![filter](./images/screenshots/project-2-filter.png)
+![filter](src/images/screenshots/project-2-filter.png)
 
 
 ## Known bugs
