@@ -188,15 +188,15 @@ if (filterPlaylists().length < 8) {
     </>
 ``` 
 
-![filter](./images/screenshots/project-2-filter.png)
+![filter](src/images/screenshots/project-2-filter.png)
 
 ## Screenshots
 
-![screenshot](./images/screenshots/1.png)
-![screenshot](./images/screenshots/2.png){height="50%" width="50%"}
-![screenshot](./images/screenshots/3.png){height="50%" width="50%"}
-![screenshot](./images/screenshots/4.png){height="50%" width="50%"}
-![screenshot](./images/screenshots/5.png){height="50%" width="50%"}
+![screenshot](src/images/screenshots/1.png)
+![screenshot](src/images/screenshots/2.png){height="50%" width="50%"}
+![screenshot](src/images/screenshots/3.png){height="50%" width="50%"}
+![screenshot](src/images/screenshots/4.png){height="50%" width="50%"}
+![screenshot](src/images/screenshots/5.png){height="50%" width="50%"}
 
 ## Known bugs
 
