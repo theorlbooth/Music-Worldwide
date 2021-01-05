@@ -1,32 +1,3 @@
-
-
-x Overview
-x Brief
-x Technologies
-Approach
-  x APIs (what APIS, how and why)
-  Linking / Dynamic page creation
-  Libraries
-    Caroussel
-    Spinner
-Screenshots
-Challenges / Victories
-  caroussel
-  x play buttons
-  ... search page (speedy)
-Known bugs
-  x Play buttons
-  CORS error (might be worth a mention)
-  Search page CSS
-Potential future features
-  Similar artist section on artist page
-  Mobile optimised
-x Images & audio
-  x unsplash
-  x noun project
-
-  ---
-
 ## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) General Assembly, Software Engineering Immersive
 
 # Project #2: Reacathon
