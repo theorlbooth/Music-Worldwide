@@ -194,10 +194,10 @@ if (filterPlaylists().length < 8) {
 
 ![screenshot](src/images/screenshots/1.png)
 <img src="src/images/screenshots/2.png" alt="Home Screen" width="50%">
-![screenshot](src/images/screenshots/2.png | width=50%)
-![screenshot](src/images/screenshots/3.png){height="50%" width="50%"}
-![screenshot](src/images/screenshots/4.png){height="50%" width="50%"}
-![screenshot](src/images/screenshots/5.png){height="50%" width="50%"}
+<img src="src/images/screenshots/3.png" alt="Chart Filter" width="50%">
+<img src="src/images/screenshots/4.png" alt="Artist Search" width="50%">
+<img src="src/images/screenshots/5.png" alt="Artist Page" width="50%">
+
 
 ## Known bugs
 
