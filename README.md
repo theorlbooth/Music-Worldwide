@@ -167,7 +167,7 @@ The API calls where similar, so our main challenge was the layout of the search 
 
 ### Carousel
 One of the biggest challenges for us was to get the carousel to work in an infinite loop without skipping from end to beggining. There seemed to be an issue with the number of slides shown vs the number of slides skipped onclick - this was finally resolved with a lot of trial and error of different aspects of the documentation. Unfortunately at the expense of the mobile responsiveness for the time being.
-Due to the fact taht we were filtering an array from an input and then mapping it into the carousel, another issue we faced was the output if there were fewer items to show than the number of slides set to be shown for the carousel. We got around this with an if statement returning the slides as individual items.
+Due to the fact that we were filtering an array from an input and then mapping it into the carousel, another issue we faced was the output if there were fewer items to show than the number of slides set to be shown for the carousel. We got around this with an if statement returning the slides as individual items.
 
 ```
 if (filterPlaylists().length < 8) {
@@ -193,9 +193,9 @@ if (filterPlaylists().length < 8) {
 ## Screenshots
 
 ![screenshot](src/images/screenshots/1.png)
-<img src="src/images/screenshots/2.png" alt="Home Screen" width="49%"> <img src="src/images/screenshots/3.png" alt="Chart Filter" width="49%">
+<img src="src/images/screenshots/2.png" alt="Home Screen" width="49.5%"> <img src="src/images/screenshots/3.png" alt="Chart Filter" width="49.5%">
 
-<img src="src/images/screenshots/4.png" alt="Artist Search" width="49%"> <img src="src/images/screenshots/5.png" alt="Artist Page" width="49%">
+<img src="src/images/screenshots/4.png" alt="Artist Search" width="49.5%"> <img src="src/images/screenshots/5.png" alt="Artist Page" width="49.5%">
 
 
 
