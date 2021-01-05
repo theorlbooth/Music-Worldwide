@@ -161,20 +161,17 @@ let playState = false
 ```
 After reflection, inserting the images via a background-image in a CSS class might be a safer solution. The onClick would then simply switch the class. This might also help with our know bug.
 
-###Setting up the search page in record time [Victory]
-We felt very satisfied that we managed to pull the Artist Search page together in just about an hour by leveraging our learnings from building the Charts and Artist pages beforehand. 
-[...]
-
+### Setting up the search page in record time [Victory]
+We felt very satisfied that we managed to pull the Artist Search page together in just about an hour by leveraging our code and learnings from building the Charts and Artist pages beforehand.
+The API calls where similar, so our main challenge was the layout of the search results.
 
 ### Carousel
 One of the biggest challenges for us was to get the carousel to work in an infinite loop without skipping from end to beggining. There seemed to be an issue with the number of slides shown vs the number of slides skipped onclick - this was finally resolved with a lot of trial and error of different aspects of the documentation. Unfortunately at the expense of the mobile responsiveness for the time being.
 Due to the fact taht we were filtering an array from an input and then mapping it into the carousel, another issue we faced was the output if there were fewer items to show than the number of slides set to be shown for the carousel. We got around this with an if statement returning the slides as individual items.
 
-
 ```
 if (filterPlaylists().length < 8) {
     return <>
-
       <section className="playlists">
         <div className="small-playlists">
           {filterPlaylists().map((playlist, index) => {
@@ -191,37 +188,38 @@ if (filterPlaylists().length < 8) {
     </>
 ``` 
 
-![filter](src/images/screenshots/project-2-filter.png)
+![filter](./images/screenshots/project-2-filter.png)
 
+## Screenshots
+
+![screenshot](./images/screenshots/1.png)
+![screenshot](./images/screenshots/2.png){height="50%" width="50%"}
+![screenshot](./images/screenshots/3.png){height="50%" width="50%"}
+![screenshot](./images/screenshots/4.png){height="50%" width="50%"}
+![screenshot](./images/screenshots/5.png){height="50%" width="50%"}
 
 ## Known bugs
-### Play buttons
-* When a play button is clicked, music is playing. When another play button is then clicked, the music switches but the first button image stays on the pause image rather than switching back.
 
-### CORS Error
-* Towards the final hours of our project we had real issues with the following error. However these were sporadic, unpredicatable and unexplainable as they were often solved with a hard refresh.
+#### Play buttons
+When a play button is clicked, music is playing. When another play button is then clicked, the music switches but the first button image stays on the pause image rather than switching back.
 
+#### CORS Error
+Towards the final hours of our project we had real issues with the following error. However these were sporadic, unpredicatable and unexplainable as they were often solved with a hard refresh.
     "No 'Access-Control-Allow-Origin' header is present on the requested resource."
 
 ## Future Features
 
-### Mobile responsiveness 
+#### Mobile responsiveness 
+We started out with this in mind and slowly drifted away from it having to hard code fixes for issues.  The time constraint played the biggest part in this, so it shouldnt be too hard to implement.
 
-* We started out with this in mind and slowly drifted away from it having to hard code fixes for issues.  The time constraint played the biggest part in this, so it shouldnt be too hard to implement.
+#### Artist section 
+The APIs were were using were packed with information and it would have been nice to include more of this on the page.  Similar artists would have been the starting point. 
 
+#### Back button
+Currently when on the artist page there is no way of going back to the playlist that was previously selected, the Charts page reloads from default. 
 
-### Artist section 
-
-* The APIs were were using were packed with information and it would have been nice to include more of this on the page.  Similar artists would have been the starting point. 
-
-
-### Back button
-
-* Currently when on the artist page there is no way of going back to the playlist that was previously selected, the Charts page reloads from default. 
-
-### Map
-
-* We had a romantic idea of having a responsive map instead of a carousel on the 'Charts' page - where one could chose the playlist by clicking on a country. Number of countries in the world vs number of playlists available aside, there were many reasons we didn't get round to this. But it would be nice to implement at some point in the future.
+#### Map
+We had a romantic idea of having a responsive map instead of a carousel on the 'Charts' page - where one could chose the playlist by clicking on a country. Number of countries in the world vs number of playlists available aside, there were many reasons we didn't get round to this. But it would be nice to implement at some point in the future.
 
 ## Images
 * Homepage background image by [Vishnu R Nair on Unsplash](https://unsplash.com/@vishnurnair)
