@@ -43,9 +43,9 @@ We decided to build a music site where you could **discover top tracks and music
 
 ### APIs 
 
-We started with a plan to use two APIs: one to get the charts from around the world (Deezer) and one to get news on specific artists or bands (Bing News). As we were planing the app out added a third API to pull in artist/band biographies (Last.fm).
+We started with a plan to use two APIs: one to get the charts from around the world (Deezer) and one to get news on specific artists or bands (Bing News). As we were planning the app, we added a third API to pull in artist/band biographies (Last.fm).
 
-For **Deezer** we didn't need an authentication key but had to use a CORS proxi server to get any results back. That worked fine but causes some instabilities in the deployed project.
+For **Deezer** we didn't need an authentication key but had to use a CORS proxi server to get any results back. That worked fine but caused some instabilities in the deployed project.
 
 To call the API we opted for the axios fetch method which is triggered by a `useEffect` everytime a country (`currentPlaylist`) is selected:
 
@@ -59,7 +59,7 @@ useEffect(() => {
     fetchData()
   }, [currentPlaylist])
 ```
-With the **Bing API** we faced the challenge to include a key in the header of the fetch request. This was finally resolved by studying the axios documentation and using an .env file.
+With the **Bing API** we faced the challenge to include a key in the header of the fetch request. This was finally resolved by studying the axios documentation and using a .env file.
 
 ```
 const { data: dataNews } = await axios.get(
@@ -85,14 +85,14 @@ Having decided to use several APIs to get the information we wanted we also had 
 <Route exact path="/project-2/charts/:artistName/:artistID" component={Artist} />
 ```
 
-This however didn't solve the entire problem.  We decided to add a search for Artist/Band in the later stages of the project and had to call the API in order to get the ID from the search input.  It did allow us however to re-run the API on that page alone and pass the name and id back through to the page we had already constructed to show the artist information, therefore creating 2 paths to the same endpoint.
+This however didn't solve the entire problem.  We decided to add a search for Artist/Band in the later stages of the project and had to call the API in order to get the ID from the search input.  It did allow us, however, to re-run the API on that page alone and pass the name and ID back through to the page we had already constructed to show the artist's information, therefore creating two paths to the same endpoint.
 
 
 ### Libraries
   
 * [React-multi-carousel](https://www.npmjs.com/package/react-multi-carousel)
 	
-After battling with 'Pure-react-carousel' we decided to use the 'React-multi-carousel'. This required a lot more setup, and what seemed like endless StackOverflow rabbit holes trying to find the correct webpack.config.js module rules to set. However after we had managed to get it on the page it was much more responsive and easier to handle...albeit with more parameters.
+After battling with 'Pure-react-carousel' we decided to use the 'React-multi-carousel'. This required a lot more setup, and what seemed like endless StackOverflow rabbit holes trying to find the correct webpack.config.js module rules to set. However, after we had managed to get it on the page it was much more responsive and easier to handle...albeit with more parameters.
 
 
 ```
@@ -143,7 +143,7 @@ const Loader = () => {
 ### Play buttons [Challenge]
 On the Charts page the play/pause buttons gave us more trouble than we expected; for ex. all changing from play to pause when one was clicked, not stopping to play once one had been clicked, or needing various clicks to start or to stop.
  
-We still have a know bug remaining with these buttons (see "Known bugs" section), but we resolved most of our issues by using a local vairable and some JS DOM techniques.
+We still have a known bug remaining with these buttons (see "Known bugs" section), but we resolved most of our issues by using a local variable and some JS DOM techniques.
 
 ```
 import pauseButton from '../images/pause.png'
@@ -164,15 +164,15 @@ let playState = false
 [...]
 <audio src='' className='player'></audio>
 ```
-After reflection, inserting the images via a background-image in a CSS class might be a safer solution. The onClick would then simply switch the class. This might also help with our know bug.
+After reflection, inserting the images via a background-image in a CSS class might be a safer solution. The onClick would then simply switch the class. This might also help with our known bug.
 
 ### Setting up the search page in record time [Victory]
 We felt very satisfied that we managed to pull the Artist Search page together in just about an hour by leveraging our code and learnings from building the Charts and Artist pages beforehand.
-The API calls where similar, so our main challenge was the layout of the search results.
+The API calls were similar, so our main challenge was the layout of the search results.
 
 ### Carousel
-One of the biggest challenges for us was to get the carousel to work in an infinite loop without skipping from end to beggining. There seemed to be an issue with the number of slides shown vs the number of slides skipped onclick - this was finally resolved with a lot of trial and error of different aspects of the documentation. Unfortunately at the expense of the mobile responsiveness for the time being.
-Due to the fact that we were filtering an array from an input and then mapping it into the carousel, another issue we faced was the output if there were fewer items to show than the number of slides set to be shown for the carousel. We got around this with an if statement returning the slides as individual items.
+One of the biggest challenges for us was to get the carousel to work in an infinite loop without skipping from the end to the beginning. There seemed to be an issue with the number of slides shown vs the number of slides skipped onClick - this was finally resolved with a lot of trial and error of different aspects of the documentation. Unfortunately, at the expense of the mobile responsiveness for the time being.
+Due to the fact that we were filtering an array from an input and then mapping it into the carousel, another issue we faced was the output if there were fewer items to show than the number of slides set to be shown for the carousel. We got around this with an IF statement returning the slides as individual items.
 
 ```
 if (filterPlaylists().length < 8) {
@@ -219,10 +219,10 @@ Towards the final hours of our project we had real issues with the following err
 We started out with this in mind and slowly drifted away from it having to hard code fixes for issues.  The time constraint played the biggest part in this, so it shouldnt be too hard to implement.
 
 #### Artist section 
-The APIs were were using were packed with information and it would have been nice to include more of this on the page.  Similar artists would have been the starting point. 
+The APIs we were using were packed with information and it would have been nice to include more of this on the page.  Similar artists would have been the starting point. 
 
 #### Back button
-Currently when on the artist page there is no way of going back to the playlist that was previously selected, the Charts page reloads from default. 
+Currently, when on the artist page there is no way of going back to the playlist that was previously selected; the Charts page reloads from default. 
 
 #### Map
 We had a romantic idea of having a responsive map instead of a carousel on the 'Charts' page - where one could chose the playlist by clicking on a country. Number of countries in the world vs number of playlists available aside, there were many reasons we didn't get round to this. But it would be nice to implement at some point in the future.
