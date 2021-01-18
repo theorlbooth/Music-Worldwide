@@ -18,10 +18,10 @@ const App = () => {
   return <BrowserRouter>
     <Navbar />
     <Switch>
-      <Route exact path="/project-2" component={Home} />
-      <Route exact path="/project-2/charts" component={Charts} />
-      <Route exact path="/project-2/search" component={ArtistSearch} />
-      <Route exact path="/project-2/charts/:artistName/:artistID" component={Artist} />
+      <Route exact path="/Music-Worldwide" component={Home} />
+      <Route exact path="/Music-Worldwide/charts" component={Charts} />
+      <Route exact path="/Music-Worldwide/search" component={ArtistSearch} />
+      <Route exact path="/Music-Worldwide/charts/:artistName/:artistID" component={Artist} />
     </Switch>
   </BrowserRouter>
 }

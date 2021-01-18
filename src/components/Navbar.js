@@ -7,9 +7,9 @@ const Navbar = () => {
       <div className="navbar-end">
         <div className="navbar-item">
           <div className="buttons">
-            <Link className="button is-white" to="/project-2">Home</Link>
-            <Link className="button is-black" to="/project-2/charts">Charts</Link>
-            <Link className="button is-black" to="/project-2/search">Artists</Link>
+            <Link className="button is-white" to="/Music-Worldwide">Home</Link>
+            <Link className="button is-black" to="/Music-Worldwide/charts">Charts</Link>
+            <Link className="button is-black" to="/Music-Worldwide/search">Artists</Link>
           </div>
         </div>
       </div>
