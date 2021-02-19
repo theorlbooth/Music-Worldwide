@@ -7,7 +7,7 @@
 In teams of two we were asked to build a **React application** that consumes a **public API**.
 We decided to build a music site where you could **discover top tracks and music news from around the world**.
 
-[You can find the project here.](https://theorlbooth.co.uk/project-2/)
+[You can find the project here.](https://theorlbooth.co.uk/Music-Worldwide)
 
 ## Contributors 
 * [Florian Wilisch](https://github.com/florian-wilisch)
